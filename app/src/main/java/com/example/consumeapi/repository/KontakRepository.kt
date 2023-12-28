@@ -7,13 +7,9 @@ import java.lang.Exception
 
 interface KontakRepository {
     suspend fun getKontak(): List<Kontak>
-
     suspend fun insertKontak(Kontak:Kontak)
-
     suspend fun updateKontak(id:Int, Kontak: Kontak)
-
     suspend fun deleteKontak(id: Int)
-
     suspend fun getKontakById(id:Int):Kontak
 }
 
