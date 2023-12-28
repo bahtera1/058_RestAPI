@@ -24,6 +24,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.consumeapi.R
+import com.example.consumeapi.ui.kontak.home.viewmodel.InsertUiEvent
+import com.example.consumeapi.ui.kontak.home.viewmodel.InsertUiState
 import kotlinx.coroutines.launch
 
 object DestinasiEntry: DestinasiNavigasi {
@@ -68,31 +70,29 @@ fun EntrySiswaScreen(
 }
 
 @Composable
-fun EntrySiswaBody(
-    uiStateSiswa: UIStateSiswa,
-    onSiswaValueChange: (DetailSiswa) -> Unit,
+fun EntryKontakBody(
+    insertUiState: InsertUiState,
+    onSiswaValueChange: (InsertUiEvent) -> Unit,
     onSaveClick: () -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ){
     Column(
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_large)),
-        modifier = modifier.padding(dimensionResource(id = R.dimen.padding_medium))
+        verticalArrangement = Arrangement.spacedBy(18.dp),
+        modifier = modifier.padding(12.dp)
     ) {
         FormInputSiswa(
-            detailSiswa = uiStateSiswa.detailSiswa,
+            insertUiEvent = insertUiState.insertUiEvent,
             onValueChange = onSiswaValueChange,
             modifier = Modifier.fillMaxWidth()
         )
         Button(
             onClick = onSaveClick,
-            enabled = uiStateSiswa.isEntryValid,
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(stringResource(R.string.btn_submit))
+            Text(text = "Simpan")
         }
     }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
