@@ -17,7 +17,6 @@ interface KontakRepository {
     suspend fun getKontakById(id:Int):Kontak
 }
 
-
 class NetworkKontakRepository(
     private val kontakApiService: KontakService
 ) : KontakRepository {
