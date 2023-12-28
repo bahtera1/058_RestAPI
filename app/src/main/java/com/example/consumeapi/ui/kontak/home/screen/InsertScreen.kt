@@ -114,5 +114,29 @@ fun FormInputSiswa(
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled
         )
+
+        OutlinedTextField(
+            value = insertUiEvent.alamat,
+            onValueChange ={onValueChange(insertUiEvent.copy(alamat = it))},
+            label = { Text("Email") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+
+        OutlinedTextField(
+            value = insertUiEvent.nohp,
+            onValueChange ={onValueChange(insertUiEvent.copy(nohp = it))},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+            label = { Text("Telepon") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = enabled
+        )
+
+        Divider(
+            thickness = 8.dp,
+            modifier = Modifier.padding(bottom = 12.dp)
+        )
     }
 }
