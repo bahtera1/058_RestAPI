@@ -1,4 +1,4 @@
-package com.example.consumeapi.ui.home.home.screen
+package com.example.consumeapi.ui.kontak.home.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.example.consumeapi.ui.home.home.viewmodel
+package com.example.consumeapi.ui.kontak.home.viewmodel
 
 import android.net.http.HttpException
 import androidx.compose.runtime.getValue

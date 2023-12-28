@@ -1,4 +1,4 @@
-package com.example.consumeapi.ui.home
+package com.example.consumeapi.ui.kontak
 
 import androidx.compose.ui.graphics.Color
 

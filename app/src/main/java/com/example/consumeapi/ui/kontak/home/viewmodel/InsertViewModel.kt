@@ -1,7 +1,11 @@
-package com.example.consumeapi.ui.home.home.viewmodel
+package com.example.consumeapi.ui.kontak.home.viewmodel
 
+import androidx.lifecycle.ViewModel
 import com.example.consumeapi.model.Kontak
+import com.example.consumeapi.repository.KontakRepository
 
+
+class InsertViewModel(private val kontakRepository: KontakRepository) : ViewModel(){}
 data class InsertUiEvent(
     val id: Int = 0,
     val nama: String = "",

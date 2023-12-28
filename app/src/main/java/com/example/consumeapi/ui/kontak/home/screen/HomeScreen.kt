@@ -1,4 +1,4 @@
-package com.example.consumeapi.ui.home.home.screen
+package com.example.consumeapi.ui.kontak.home.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -26,7 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.consumeapi.R
 import com.example.consumeapi.model.Kontak
-import com.example.consumeapi.ui.home.home.viewmodel.KontakUIState
+import com.example.consumeapi.ui.kontak.home.viewmodel.KontakUIState
 
 @Composable
 fun HomeScreen(
