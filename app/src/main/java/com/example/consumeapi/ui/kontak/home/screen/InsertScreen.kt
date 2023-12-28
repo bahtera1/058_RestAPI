@@ -104,37 +104,15 @@ fun FormInputSiswa(
 ){
     Column(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
-    ) {
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ){
         OutlinedTextField(
-            value = detailSiswa.nama,
-            onValueChange = {onValueChange(detailSiswa.copy(nama = it))},
-            label = { Text(stringResource(R.string.nama)) },
+            value = insertUiEvent.nama,
+            onValueChange ={onValueChange(insertUiEvent.copy(nama = it))},
+            label = { Text("Nama") },
+            singleLine = true,
             modifier = Modifier.fillMaxWidth(),
-            enabled = enabled,
-            singleLine = true
-        )
-        OutlinedTextField(
-            value = detailSiswa.alamat,
-            onValueChange = {onValueChange(detailSiswa.copy(alamat = it))},
-            label = { Text(stringResource(R.string.alamat)) },
-            modifier = Modifier.fillMaxWidth(),
-            enabled = enabled,
-            singleLine = true
-        )
-        OutlinedTextField(
-            value = detailSiswa.telpon,
-            onValueChange = {onValueChange(detailSiswa.copy(nohp = it))},
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text("Telepon") },
-            modifier = Modifier.fillMaxWidth(),
-            enabled = enabled,
-            singleLine = true
-        )
-
-        Divider(
-            thickness = 8.dp,
-            modifier = Modifier.padding(bottom = 12.dp)
+            enabled = enabled
         )
     }
 }
