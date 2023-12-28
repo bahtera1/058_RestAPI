@@ -28,4 +28,5 @@ interface KontakService {
 
     @DELETE("kontak/{id}")
     suspend fun deleteKontak(@Path("id") id: Int): Response<Void>
+
 }

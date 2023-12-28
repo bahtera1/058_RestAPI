@@ -8,6 +8,7 @@ import com.example.consumeapi.KontakAplication
 
 object PenyediaViewModel {
     val Factory = viewModelFactory {
+
         initializer {
             HomeViewModel(aplikasiKontak().container.kontakRepository)
         }

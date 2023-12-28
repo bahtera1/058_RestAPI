@@ -19,88 +19,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.example.consumeapi.R
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.consumeapi.navigation.DestinasiNavigasi
+import com.example.consumeapi.ui.TopAppBarKontak
 import com.example.consumeapi.ui.kontak.home.viewmodel.InsertUiEvent
 import com.example.consumeapi.ui.kontak.home.viewmodel.InsertUiState
+import com.example.consumeapi.ui.kontak.home.viewmodel.InsertViewModel
+import com.example.consumeapi.ui.kontak.home.viewmodel.PenyediaViewModel
 import kotlinx.coroutines.launch
-
-object DestinasiEntry: DestinasiNavigasi {
-    override val route = "item_entry"
-    override val titleRes = R.string.entry_siswa
-}
-
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun EntrySiswaScreen(
-    navigetBack: () -> Unit,
-    modifier: Modifier = Modifier,
-    viewModel: EntryViewModel = viewModel(factory = PenyediaViewModel.Factory)
-){
-    val coroutineScope = rememberCoroutineScope()
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-
-    Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = {
-            SiswaTopAppBar(
-                title = stringResource(DestinasiEntry.titleRes),
-                canNavigateBack = true,
-                scrollBehavior = scrollBehavior
-            )
-        }){innerPadding ->
-        EntrySiswaBody(
-            uiStateSiswa = viewModel.uiStateSiswa,
-            onSiswaValueChange = viewModel::updateUIState,
-            onSaveClick = {
-                coroutineScope.launch {
-                    viewModel.saveSiswa()
-                    navigetBack()
-                }
-            },
-            modifier = Modifier
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState())
-                .fillMaxWidth()
-        )
-    }
-}
-
-@Composable
-fun EntryKontakBody(
-    insertUiState: InsertUiState,
-    onSiswaValueChange: (InsertUiEvent) -> Unit,
-    onSaveClick: () -> Unit,
-    modifier: Modifier = Modifier
-){
-    Column(
-        verticalArrangement = Arrangement.spacedBy(18.dp),
-        modifier = modifier.padding(12.dp)
-    ) {
-        FormInputSiswa(
-            insertUiEvent = insertUiState.insertUiEvent,
-            onValueChange = onSiswaValueChange,
-            modifier = Modifier.fillMaxWidth()
-        )
-        Button(
-            onClick = onSaveClick,
-            shape = MaterialTheme.shapes.small,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(text = "Simpan")
-        }
-    }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FormInputSiswa(
-    detailSiswa: DetailSiswa,
+    insertUiEvent: InsertUiEvent,
     modifier: Modifier = Modifier,
-    onValueChange: (DetailSiswa) -> Unit = {},
+    onValueChange: (InsertUiEvent) -> Unit = {},
     enabled: Boolean = true
 ){
     Column(
@@ -135,9 +70,83 @@ fun FormInputSiswa(
             enabled = enabled
         )
 
+        if (enabled) {
+            Text(
+                text = "Isi Semua Data",
+                modifier = Modifier.padding(start = 12.dp)
+            )
+        }
+
         Divider(
             thickness = 8.dp,
             modifier = Modifier.padding(bottom = 12.dp)
+        )
+    }
+}
+
+
+@Composable
+fun EntryKontakBody(
+    insertUiState: InsertUiState,
+    onSiswaValueChange: (InsertUiEvent) -> Unit,
+    onSaveClick: () -> Unit,
+    modifier: Modifier = Modifier
+){
+    Column(
+        verticalArrangement = Arrangement.spacedBy(18.dp),
+        modifier = modifier.padding(12.dp)
+    ) {
+        FormInputSiswa(
+            insertUiEvent = insertUiState.insertUiEvent,
+            onValueChange = onSiswaValueChange,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Button(
+            onClick = onSaveClick,
+            shape = MaterialTheme.shapes.small,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text(text = "Simpan")
+        }
+    }
+}
+
+object DestinasiEntry : DestinasiNavigasi {
+    override val route = "item_entry"
+    override val titleRes = "Entry Siswa"
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun EntryKontakScreen(
+    navigateBack: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: InsertViewModel = viewModel(factory = PenyediaViewModel.Factory),
+){
+    val coroutineScope = rememberCoroutineScope()
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    Scaffold(
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            TopAppBarKontak(
+                title = DestinasiEntry.titleRes,
+                canNavigateBack = true,
+                scrollBehavior = scrollBehavior,
+                navigateUp = navigateBack
+            )
+        }) { innerPadding ->
+        EntryKontakBody(
+            insertUiState = viewModel.insertKontakState,
+            onSiswaValueChange = viewModel::updateInsertKontakState,
+            onSaveClick = {
+                coroutineScope.launch {
+                    viewModel.insertKontak()
+                    navigateBack()
+                }
+            },
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
         )
     }
 }
