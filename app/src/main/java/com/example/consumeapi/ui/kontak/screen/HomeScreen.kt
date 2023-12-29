@@ -1,4 +1,4 @@
-package com.example.consumeapi.ui.kontak.home.screen
+package com.example.consumeapi.ui.kontak.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -39,10 +39,11 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumeapi.R
 import com.example.consumeapi.model.Kontak
 import com.example.consumeapi.navigation.DestinasiNavigasi
+import com.example.consumeapi.ui.PenyediaViewModel
 import com.example.consumeapi.ui.TopAppBarKontak
-import com.example.consumeapi.ui.kontak.home.viewmodel.HomeViewModel
-import com.example.consumeapi.ui.kontak.home.viewmodel.KontakUIState
-import com.example.consumeapi.ui.theme.PenyediaViewModel
+import com.example.consumeapi.ui.kontak.viewmodel.HomeViewModel
+import com.example.consumeapi.ui.kontak.viewmodel.KontakUIState
+
 
 @Composable
 fun HomeStatus(

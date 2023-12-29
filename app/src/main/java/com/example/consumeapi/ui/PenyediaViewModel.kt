@@ -1,10 +1,12 @@
-package com.example.consumeapi.ui.kontak.home.viewmodel
+package com.example.consumeapi.ui
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.consumeapi.KontakAplication
+import com.example.consumeapi.ui.kontak.viewmodel.HomeViewModel
+import com.example.consumeapi.ui.kontak.viewmodel.InsertViewModel
 
 object PenyediaViewModel {
     val Factory = viewModelFactory {

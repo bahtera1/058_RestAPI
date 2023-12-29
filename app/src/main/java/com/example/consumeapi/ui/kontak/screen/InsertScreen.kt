@@ -1,4 +1,4 @@
-package com.example.consumeapi.ui.kontak.home.screen
+package com.example.consumeapi.ui.kontak.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,10 +24,10 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumeapi.navigation.DestinasiNavigasi
 import com.example.consumeapi.ui.TopAppBarKontak
-import com.example.consumeapi.ui.kontak.home.viewmodel.InsertUiEvent
-import com.example.consumeapi.ui.kontak.home.viewmodel.InsertUiState
-import com.example.consumeapi.ui.kontak.home.viewmodel.InsertViewModel
-import com.example.consumeapi.ui.kontak.home.viewmodel.PenyediaViewModel
+import com.example.consumeapi.ui.kontak.viewmodel.InsertUiEvent
+import com.example.consumeapi.ui.kontak.viewmodel.InsertUiState
+import com.example.consumeapi.ui.kontak.viewmodel.InsertViewModel
+import com.example.consumeapi.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

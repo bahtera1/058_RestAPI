@@ -21,8 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumeapi.R
 import com.example.consumeapi.navigation.PengelolaHalaman
-import com.example.consumeapi.ui.kontak.home.viewmodel.HomeViewModel
-import com.example.consumeapi.ui.kontak.home.viewmodel.PenyediaViewModel
+import com.example.consumeapi.ui.kontak.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
