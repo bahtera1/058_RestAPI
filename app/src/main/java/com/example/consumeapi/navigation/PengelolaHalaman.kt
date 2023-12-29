@@ -6,7 +6,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.consumeapi.ui.kontak.home.screen.DestinasiEntry
 import com.example.consumeapi.ui.kontak.home.screen.DestinasiHome
+import com.example.consumeapi.ui.kontak.home.screen.EntryKontakScreen
 import com.example.consumeapi.ui.kontak.home.screen.HomeScreen
 
 @Composable
