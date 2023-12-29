@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumeapi.repository.KontakRepository
 import com.example.consumeapi.ui.kontak.screen.EditDestination
 import kotlinx.coroutines.launch
@@ -26,7 +25,7 @@ class EditViewModel (
         }
     }
 
-    fun updateInsertKontak(insertUiEvent: InsertUiEvent){
+    fun updateInsertKontakState(insertUiEvent: InsertUiEvent){
         editKontakState = InsertUiState(insertUiEvent=insertUiEvent)
     }
 
@@ -34,9 +33,7 @@ class EditViewModel (
         viewModelScope.launch {
             try {
                 kontakRepository.updateKontak(kontakId,editKontakState.insertUiEvent.toKontak())
-            } catch (e: Exception){
-                e.printStackTrace()
-            }
+            } catch (e: Exception){}
         }
     }
 }

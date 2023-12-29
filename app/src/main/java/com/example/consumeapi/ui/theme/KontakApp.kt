@@ -1,4 +1,4 @@
-package com.example.consumeapi.ui
+package com.example.consumeapi.ui.theme
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -31,7 +31,7 @@ fun KontakApp (
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold (
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = { TopAppBar(scrollBehavior = scrollBehavior)}
+        topBar = { TopAppBar(scrollBehavior = scrollBehavior) }
     ){
         Surface(
             modifier = Modifier

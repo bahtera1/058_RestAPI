@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.consumeapi.model.Kontak
 import com.example.consumeapi.repository.KontakRepository
-import com.example.consumeapi.ui.kontak.screen.DetailDestination
+import com.example.consumeapi.ui.kontak.screen.DetailsDestination
 import kotlinx.coroutines.launch
 
 sealed class DetailsKontakUiState{
@@ -16,7 +16,8 @@ sealed class DetailsKontakUiState{
         val kontak: Kontak) : DetailsKontakUiState()
     object Error : DetailsKontakUiState()
     object Loading : DetailsKontakUiState()}
-class DetailViewModel(
+
+class DetailsViewModel(
     savedStateHandle: SavedStateHandle, private val kontakRepository: KontakRepository
 ) : ViewModel() {
 

@@ -23,11 +23,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.consumeapi.navigation.DestinasiNavigasi
-import com.example.consumeapi.ui.TopAppBarKontak
+import com.example.consumeapi.ui.theme.TopAppBarKontak
 import com.example.consumeapi.ui.kontak.viewmodel.InsertUiEvent
 import com.example.consumeapi.ui.kontak.viewmodel.InsertUiState
 import com.example.consumeapi.ui.kontak.viewmodel.InsertViewModel
-import com.example.consumeapi.ui.PenyediaViewModel
+import com.example.consumeapi.ui.theme.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -52,8 +52,8 @@ fun FormInputSiswa(
         )
 
         OutlinedTextField(
-            value = insertUiEvent.alamat,
-            onValueChange ={onValueChange(insertUiEvent.copy(alamat = it))},
+            value = insertUiEvent.email,
+            onValueChange ={onValueChange(insertUiEvent.copy(email = it))},
             label = { Text("Email") },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
